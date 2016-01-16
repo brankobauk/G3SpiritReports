@@ -1,0 +1,122 @@
+﻿@model G3SpiritsReports.Models.ViewModels.MonthlyReportViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@Html.DropDownListFor(x => x.CountryId, Model.Countries)
+@Html.DropDownListFor(x => x.Month, Model.Months)
+@Html.DropDownListFor(x => x.Year, Model.Years)
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthlyReport.PlannedValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthlyReport.SoldValue)
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td width="150">
+            <div class="text">
+                @Html.DisplayFor(model => model.MonthlyReport.PlannedValue)
+            </div>
+            <div class="input" style="display:none;">
+                <input type="text" id="PlannedValue" name="PlannedValue" value="@Html.DisplayFor(model => model.MonthlyReport.PlannedValue)" style="width:130px;" class="input-number" />
+            </div>
+        </td>
+        <td width="150">
+            <div class="text">
+                @Html.DisplayFor(model => model.MonthlyReport.SoldValue)
+            </div>
+            <div class="input" style="display:none;">
+                <input type="text" id="SoldValue" name="SoldValue" value="@Html.DisplayFor(model => model.MonthlyReport.SoldValue)" style="width:130px;" class="input-number" />
+            </div>
+        </td>
+        <td>
+            <div class="text">
+                @Html.ActionLink("Edit", "Edit", new { BrandId = Model.MonthlyReport.MonthlyReportId })
+            </div>
+            <div class="input" style="display:none;">
+                <input type="button" id="Save" name="Save" value="Save" class="save" />&nbsp;&nbsp;<input type="button" id="Cancel" name="Cancel" value="Cancel" class="cancel" />
+            </div>
+
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    function ShowInputs()
+    {
+        $(".text").hide();
+        $(".input").show();
+    }
+    function HideInputs(id)
+    {
+        $(".text").show();
+        $(".input").hide();
+    }
+    function ReloadPage() {
+        var month = $("#Month option:selected").val();
+        var year = $("#Year option:selected").val();
+        var countryId = $("#CountryId option:selected").val();
+
+        window.location = "/MonthlyReport?CountryId=" + countryId + "&Year=" + year + "&Month=" + month;
+    }
+    $(document).ready(function () {
+        $("a").click(function () {
+            var id = $(this).attr("href").split("MonthlyReportId=")[1];
+            ShowInputs(id);
+            return false;
+        });
+        $(".save").click(function () {
+            var month = $("#Month option:selected").val();
+            var year = $("#Year option:selected").val();
+            var countryId = $("#CountryId option:selected").val();
+            var plannedValue = $("#PlannedValue").val().trim().replace(",",".");
+            var soldValue = $("#SoldValue").val().trim().replace(",", ".");
+            if (plannedValue == "")
+            {
+                plannedValue = 0;
+            }
+            if (soldValue == "") {
+                soldValue = 0;
+            }
+            var data = { CountryId: countryId, Month: month, Year: year, PlannedValue: plannedValue, SoldValue: soldValue }
+            $.ajax({
+                method: "GET",
+                cache: false,
+                url: "/MonthlyReport/CreateOrEdit",
+                data: data,
+                success: function (response)
+                {
+                    location.reload();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            })
+
+        });
+        $(".cancel").click(function () {
+            HideInputs();
+        });
+        $("#Month").change(function () {
+            ReloadPage();
+        });
+        $("#Year").change(function () {
+            ReloadPage();
+        });
+        $("#CountryId").change(function () {
+            ReloadPage();
+        });
+        $(".input-number").numeric(",");
+    });
+</script>
