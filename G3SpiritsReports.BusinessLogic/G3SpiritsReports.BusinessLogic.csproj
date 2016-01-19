@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{79C6F393-5DF7-47AF-9144-87E94BAD9DD8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>G3SpiritsReports.BusinessLogic</RootNamespace>
+    <AssemblyName>G3SpiritsReports.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Brands\BrandHandler.cs" />
+    <Compile Include="Brands\BrandManager.cs" />
+    <Compile Include="Countries\CountryHandler.cs" />
+    <Compile Include="Countries\CountryManager.cs" />
+    <Compile Include="MonthlyBrandReports\MonthlyBrandReportHandler.cs" />
+    <Compile Include="MonthlyBrandReports\MonthlyBrandReportManager.cs" />
+    <Compile Include="MonthlyReports\MonthlyReportHandler.cs" />
+    <Compile Include="MonthlyReports\MonthlyReportManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="YearlyBrandReports\YearlyBrandReportHandler.cs" />
+    <Compile Include="YearlyBrandReports\YearlyBrandReportManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\G3SpiritsReports.DataLayer\G3SpiritsReports.DataLayer.csproj">
+      <Project>{22ec915d-9a66-40b3-a22e-15c73a508b9c}</Project>
+      <Name>G3SpiritsReports.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\G3SpiritsReports.Helpers\G3SpiritsReports.Helpers.csproj">
+      <Project>{2696abc8-679e-4f09-816f-d23d5ff3e1c9}</Project>
+      <Name>G3SpiritsReports.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\G3SpiritsReports.Models\G3SpiritsReports.Models.csproj">
+      <Project>{ec90a4cb-3be0-43c6-b8c8-206757106514}</Project>
+      <Name>G3SpiritsReports.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,132 @@
+﻿@model G3SpiritsReports.Models.ViewModels.YearlyBrandReportViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.DropDownListFor(x => x.CountryId, Model.Countries)
+@Html.DropDownListFor(x => x.BrandId, Model.Brands)
+@Html.DropDownListFor(x => x.Year, Model.Years)
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BrandId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountryId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.YearlyBrandReports) {
+    <tr>
+        <td>
+           @{
+    var textInfo = new System.Globalization.CultureInfo("en-US", false).TextInfo;
+    @textInfo.ToTitleCase(System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(item.Month))
+        }
+        </td>
+        <td width="150">
+            <div class="text_@item.Month">
+                @Html.DisplayFor(modelItem => item.PlannedPieces)
+            </div>
+            <div class="input_@item.Month"  style=" display:none;">
+                <input type="text" id="PlannedPieces_@item.Month" name="PlannedPieces" value="@Html.DisplayFor(modelItem => item.PlannedPieces)" style="width:130px;" class="input-number" />
+            </div>
+        </td>
+        <td width="150">
+            <div class="text_@item.Month">
+     @Html.DisplayFor(modelItem => item.SoldPieces)
+            </div>
+            <div class="input_@item.Month" style="display:none;">
+                <input type="text" id="SoldPieces_@item.Month" name="SoldPieces" value="@Html.DisplayFor(modelItem => item.SoldPieces)" style="width:130px;" class="input-number" />
+            </div>
+        </td>
+        <td>
+            <div class="text_@item.Month">
+                @Html.ActionLink("Edit", "Edit", new { Month = item.Month })
+            </div>
+            <div class="input_@item.Month" style="display:none;">
+                <input type="button" id="Save_@item.Month" name="Save" value="Save" class="save" />&nbsp;&nbsp;<input type="button" id="Cancel_@item.Month" name="Cancel" value="Cancel" class="cancel" />
+            </div>
+        </td>
+    </tr>
+}
+
+</table>
+<script type="text/javascript">
+    function ShowInputs(id)
+    {
+        $(".text_" + id).hide();
+        $(".input_" + id).show();
+    }
+    function HideInputs(id)
+    {
+        $(".text_"+ id).show();
+        $(".input_" + id).hide();
+    }
+    function ReloadPage() {
+        var brandId = $("#BrandId option:selected").val();
+        var year = $("#Year option:selected").val();
+        var countryId = $("#CountryId option:selected").val();
+
+        window.location = "/YearlyBrandReport?CountryId=" + countryId + "&Year=" + year + "&BrandId=" + brandId;
+    }
+    $(document).ready(function () {
+        $("a").click(function () {
+            var id = $(this).attr("href").split("Month=")[1];
+            ShowInputs(id);
+            return false;
+        });
+        $(".save").click(function () {
+            var id = $(this).attr("id").split("Save_")[1];
+            var brandId = $("#BrandId option:selected").val();
+            var year = $("#Year option:selected").val();
+            var countryId = $("#CountryId option:selected").val();
+            var plannedPieces = $("#PlannedPieces_" + id).val().trim();
+            var soldPieces = $("#SoldPieces_" + id).val().trim();
+            if (plannedPieces == "")
+            {
+                plannedPieces = 0;
+            }
+            if (soldPieces == "") {
+                soldPieces = 0;
+            }
+            var data = { CountryId: countryId, BrandId: brandId, Month: id, Year: year, PlannedPieces: plannedPieces, SoldPieces: soldPieces }
+            $.ajax({
+                method: "GET",
+                cache: false,
+                url: "/YearlyBrandReport/CreateOrEdit",
+                data: data,
+                success: function (response)
+                {
+                    location.reload();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            })
+
+        });
+        $(".cancel").click(function () {
+            var id = $(this).attr("id").split("Cancel_")[1];
+            HideInputs(id);
+        });
+        $("#BrandId").change(function () {
+            ReloadPage();
+        });
+        $("#Year").change(function () {
+            ReloadPage();
+        });
+        $("#CountryId").change(function () {
+            ReloadPage();
+        });
+        $(".input-number").numeric();
+    });
+</script>
