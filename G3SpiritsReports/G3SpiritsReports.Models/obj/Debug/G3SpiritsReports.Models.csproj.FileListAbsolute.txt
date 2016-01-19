@@ -1,5 +1,0 @@
-C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.Models\bin\Debug\G3SpiritsReports.Models.dll
-C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.Models\bin\Debug\G3SpiritsReports.Models.pdb
-C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.Models\obj\Debug\G3SpiritsReports.Models.dll
-C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.Models\obj\Debug\G3SpiritsReports.Models.pdb
-C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.Models\obj\Debug\G3SpiritsReports.Models.csprojResolveAssemblyReference.cache
