@@ -10,3 +10,15 @@ C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.DataLayer\obj\Deb
 C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.DataLayer\obj\Debug\G3SpiritsReports.DataLayer.pdb
 C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
 C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.DataLayer\bin\Debug\G3SpiritsReports.DataLayer.dll.config
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.DataLayer\bin\Debug\G3SpiritsReports.DataLayer.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.DataLayer\bin\Debug\G3SpiritsReports.DataLayer.pdb
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.DataLayer\bin\Debug\EntityFramework.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.DataLayer\bin\Debug\G3SpiritsReports.Models.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.DataLayer\bin\Debug\G3SpiritsReports.Models.pdb
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.DataLayer\bin\Debug\EntityFramework.xml
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.DataLayer\obj\Debug\G3SpiritsReports.DataLayer.csprojResolveAssemblyReference.cache
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.DataLayer\obj\Debug\G3SpiritsReports.DataLayer.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.DataLayer\obj\Debug\G3SpiritsReports.DataLayer.pdb

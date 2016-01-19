@@ -5,3 +5,10 @@ C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.Helpers\obj\Debug
 C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.Helpers\obj\Debug\G3SpiritsReports.Helpers.csprojResolveAssemblyReference.cache
 C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.Helpers\bin\Debug\G3SpiritsReports.Models.dll
 C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.Helpers\bin\Debug\G3SpiritsReports.Models.pdb
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Helpers\bin\Debug\G3SpiritsReports.Helpers.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Helpers\bin\Debug\G3SpiritsReports.Helpers.pdb
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Helpers\bin\Debug\G3SpiritsReports.Models.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Helpers\bin\Debug\G3SpiritsReports.Models.pdb
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Helpers\obj\Debug\G3SpiritsReports.Helpers.csprojResolveAssemblyReference.cache
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Helpers\obj\Debug\G3SpiritsReports.Helpers.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Helpers\obj\Debug\G3SpiritsReports.Helpers.pdb

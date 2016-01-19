@@ -11,3 +11,16 @@ C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.BusinessLogic\bin
 C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.BusinessLogic\bin\Debug\G3SpiritsReports.Helpers.pdb
 C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.BusinessLogic\bin\Debug\G3SpiritsReports.Models.pdb
 C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.BusinessLogic\bin\Debug\EntityFramework.xml
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.BusinessLogic\bin\Debug\G3SpiritsReports.BusinessLogic.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.BusinessLogic\bin\Debug\G3SpiritsReports.BusinessLogic.pdb
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.BusinessLogic\bin\Debug\G3SpiritsReports.DataLayer.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.BusinessLogic\bin\Debug\G3SpiritsReports.Helpers.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.BusinessLogic\bin\Debug\G3SpiritsReports.Models.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.BusinessLogic\bin\Debug\EntityFramework.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.BusinessLogic\bin\Debug\G3SpiritsReports.DataLayer.pdb
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.BusinessLogic\bin\Debug\G3SpiritsReports.Helpers.pdb
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.BusinessLogic\bin\Debug\G3SpiritsReports.Models.pdb
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.BusinessLogic\bin\Debug\EntityFramework.xml
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.BusinessLogic\obj\Debug\G3SpiritsReports.BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.BusinessLogic\obj\Debug\G3SpiritsReports.BusinessLogic.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.BusinessLogic\obj\Debug\G3SpiritsReports.BusinessLogic.pdb
