@@ -16,9 +16,9 @@ namespace G3SpiritsReports.BusinessLogic.MonthlyBrandReports
             _monthlyBrandReportRepository.CreateOrEdit(monthlyBrandReport);
         }
 
-        public MonthlyBrandReport GetMonthlyBrandReport(int brandId, int countryId, int month, int year)
+        public MonthlyBrandReport GetMonthlyBrandReport(int brandId, int countryId, DateTime date)
         {
-            return _monthlyBrandReportRepository.GetMonthlyBrandReport(brandId, countryId, month, year);
+            return _monthlyBrandReportRepository.GetMonthlyBrandReport(brandId, countryId, date);
         }
     }
 }

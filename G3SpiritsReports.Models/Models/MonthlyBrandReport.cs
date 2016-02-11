@@ -13,10 +13,9 @@ namespace G3SpiritsReports.Models.Models
         public int MonthlyBrandReportId { get; set; }
         public int BrandId { get; set; }
         public int CountryId { get; set; }
-        public int Month { get; set; }
-        public int Year { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd.MM.yyyy}")]
+        public DateTime Date { get; set; }
         public int UserId { get; set; }
-        public int PlannedPieces { get; set; }
         public int SoldPieces { get; set; }
 
         public virtual Country Country { get; set; }

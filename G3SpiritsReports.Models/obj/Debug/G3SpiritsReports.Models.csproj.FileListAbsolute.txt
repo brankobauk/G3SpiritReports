@@ -5,6 +5,9 @@ C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.Models\obj\Debug\
 C:\Projects\G3SpiritsReports\G3SpiritsReports\G3SpiritsReports.Models\obj\Debug\G3SpiritsReports.Models.csprojResolveAssemblyReference.cache
 C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Models\bin\Debug\G3SpiritsReports.Models.dll
 C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Models\bin\Debug\G3SpiritsReports.Models.pdb
-C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Models\obj\Debug\G3SpiritsReports.Models.csprojResolveAssemblyReference.cache
 C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Models\obj\Debug\G3SpiritsReports.Models.dll
 C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Models\obj\Debug\G3SpiritsReports.Models.pdb
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Models\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Models\bin\Debug\System.Web.Mvc.dll
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Models\bin\Debug\System.Web.Mvc.xml
+C:\Projects\Private\G3SpiritReports\G3SpiritsReports.Models\obj\Debug\G3SpiritsReports.Models.csprojResolveAssemblyReference.cache

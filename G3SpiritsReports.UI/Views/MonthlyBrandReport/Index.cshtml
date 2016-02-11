@@ -13,16 +13,12 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-@Html.DropDownListFor(x => x.CountryId, Model.Countries)
-@Html.DropDownListFor(x => x.Month, Model.Months)
-@Html.DropDownListFor(x => x.Year, Model.Years)
+@Html.DropDownListFor(x => x.CountryId, Model.Countries) 
+Date: @Html.EditorFor(model => model.Date)   
 <table>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.MonthlyBrandReports.FirstOrDefault().Brand.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MonthlyBrandReports.FirstOrDefault().PlannedPieces)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MonthlyBrandReports.FirstOrDefault().SoldPieces)
@@ -35,14 +31,6 @@
         <tr class="Row_@item.MonthlyBrandReportId" >
             <td width="200">
                 @Html.DisplayFor(modelItem => item.Brand.Name)
-            </td>
-            <td width ="150">
-                <div class="Text_@item.Brand.BrandId">
-                    @Html.DisplayFor(modelItem => item.PlannedPieces)
-                </div>
-                <div class="Input_@item.Brand.BrandId" style="display:none;">
-                    <input type="text" id="PlannedPieces_@item.Brand.BrandId" name="PlannedPieces_@item.Brand.BrandId" value="@Html.DisplayFor(modelItem => item.PlannedPieces)" style="width:130px;" class="input-number"/>
-                </div>
             </td>
             <td width="150">
                 <div class="Text_@item.Brand.BrandId">
@@ -65,74 +53,6 @@
 }
 
 </table>
-<script type="text/javascript">
-    function ShowInputs(id)
-    {
-        $(".Text_" + id).hide();
-        $(".Input_" + id).show();
-    }
-    function HideInputs(id)
-    {
-        $(".Text_" + id).show();
-        $(".Input_" + id).hide();
-    }
-    function ReloadPage() {
-        var month = $("#Month option:selected").val();
-        var year = $("#Year option:selected").val();
-        var countryId = $("#CountryId option:selected").val();
-
-        window.location = "/MonthlyBrandReport?CountryId=" + countryId + "&Year=" + year + "&Month=" + month;
-    }
-    $(document).ready(function () {
-        $("a").click(function () {
-            var id = $(this).attr("href").split("BrandId=")[1];
-            ShowInputs(id);
-            return false;
-        });
-        $(".save").click(function () {
-            var id = $(this).attr("id").split("Save_")[1];
-            var month = $("#Month option:selected").val();
-            var year = $("#Year option:selected").val();
-            var countryId = $("#CountryId option:selected").val();
-            var plannedPieces = $("#PlannedPieces_" + id).val().trim();
-            var soldPieces = $("#SoldPieces_" + id).val().trim();
-            if (plannedPieces == "")
-            {
-                plannedPieces = 0;
-            }
-            if (soldPieces == "") {
-                soldPieces = 0;
-            }
-            var data = { CountryId: countryId, Month: month, Year: year, BrandId: id, PlannedPieces: plannedPieces, SoldPieces: soldPieces  }
-            $.ajax({
-                method: "GET",
-                cache: false,
-                url: "/MonthlyBrandReport/CreateOrEdit",
-                data: data,
-                success: function (response)
-                {
-                    location.reload();
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status);
-                    alert(thrownError);
-                }
-            })
-            
-        });
-        $(".cancel").click(function () {
-            var id = $(this).attr("id").split("Cancel_")[1];
-            HideInputs(id);
-        });
-        $("#Month").change(function () {
-            ReloadPage();
-        });
-        $("#Year").change(function () {
-            ReloadPage();
-        });
-        $("#CountryId").change(function () {
-            ReloadPage();
-        });
-        $(".input-number").numeric()
-    });
-</script>
+@Scripts.Render("~/bundles/jqueryui")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/monthlybrandreport")

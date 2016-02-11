@@ -44,6 +44,8 @@
     <Compile Include="Brands\BrandManager.cs" />
     <Compile Include="Countries\CountryHandler.cs" />
     <Compile Include="Countries\CountryManager.cs" />
+    <Compile Include="MonthlyBrandPlans\MonthlyBrandPlanHandler.cs" />
+    <Compile Include="MonthlyBrandPlans\MonthlyBrandPlanManager.cs" />
     <Compile Include="MonthlyBrandReports\MonthlyBrandReportHandler.cs" />
     <Compile Include="MonthlyBrandReports\MonthlyBrandReportManager.cs" />
     <Compile Include="MonthlyReports\MonthlyReportHandler.cs" />

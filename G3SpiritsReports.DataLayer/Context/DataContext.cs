@@ -14,6 +14,7 @@ namespace G3SpiritsReports.DataLayer.Context
     {
         public DbSet<Country> Countries { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<MonthlyBrandPlan> MonthlyBrandPlans { get; set; }
         public DbSet<MonthlyBrandReport> MonthlyBrandReports { get; set; }
         public DbSet<MonthlyReport> MonthlyReports { get; set; }
         public DbSet<YearlyBrandReport> YearlyBrandReports { get; set; }

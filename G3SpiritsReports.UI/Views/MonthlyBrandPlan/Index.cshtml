@@ -1,0 +1,120 @@
+﻿@model G3SpiritsReports.Models.ViewModels.MonthlyBrandPlanViewModel
+@using System.Globalization
+@{
+    ViewBag.Title = "Index";
+}
+@helper CustomRenderingOfColumn(int month)
+{
+    var textInfo = new CultureInfo("en-US", false).TextInfo;
+    @textInfo.ToTitleCase(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month))
+}
+<h2>Index</h2>
+
+@Html.DropDownListFor(x => x.CountryId, Model.Countries)
+@Html.DropDownListFor(x => x.Month, Model.Months)
+@Html.DropDownListFor(x => x.Year, Model.Years)
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthlyBrandPlans.FirstOrDefault().Brand.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MonthlyBrandPlans.FirstOrDefault().PlannedPieces)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.MonthlyBrandPlans)
+    {
+        <tr class="Row_@item.MonthlyBrandPlanId">
+            <td width="200">
+                @Html.DisplayFor(modelItem => item.Brand.Name)
+            </td>
+            <td width="150">
+                <div class="Text_@item.Brand.BrandId">
+                    @Html.DisplayFor(modelItem => item.PlannedPieces)
+                </div>
+                <div class="Input_@item.Brand.BrandId" style="display:none;">
+                    <input type="text" id="PlannedPieces_@item.Brand.BrandId" name="PlannedPieces_@item.Brand.BrandId" value="@Html.DisplayFor(modelItem => item.PlannedPieces)" style="width:130px;" class="input-number" />
+                </div>
+            </td>
+            <td>
+                <div class="Text_@item.Brand.BrandId">
+                    @Html.ActionLink("Edit", "Edit", new { BrandId = item.Brand.BrandId })
+                </div>
+                <div class="Input_@item.Brand.BrandId" style="display:none;">
+                    <input type="button" id="Save_@item.Brand.BrandId" name="Save_@item.Brand.BrandId" value="Save" class="save" />&nbsp;&nbsp;<input type="button" id="Cancel_@item.Brand.BrandId" name="Cancel_@item.Brand.BrandId" value="Cancel" class="cancel" />
+                </div>
+
+            </td>
+        </tr>
+    }
+
+</table>
+<script type="text/javascript">
+    function ShowInputs(id)
+    {
+        $(".Text_" + id).hide();
+        $(".Input_" + id).show();
+    }
+    function HideInputs(id)
+    {
+        $(".Text_" + id).show();
+        $(".Input_" + id).hide();
+    }
+    function ReloadPage() {
+        var month = $("#Month option:selected").val();
+        var year = $("#Year option:selected").val();
+        var countryId = $("#CountryId option:selected").val();
+
+        window.location = "/MonthlyBrandPlan?CountryId=" + countryId + "&Year=" + year + "&Month=" + month;
+    }
+    $(document).ready(function () {
+        $("a").click(function () {
+            var id = $(this).attr("href").split("BrandId=")[1];
+            ShowInputs(id);
+            return false;
+        });
+        $(".save").click(function () {
+            var id = $(this).attr("id").split("Save_")[1];
+            var month = $("#Month option:selected").val();
+            var year = $("#Year option:selected").val();
+            var countryId = $("#CountryId option:selected").val();
+            var plannedPieces = $("#PlannedPieces_" + id).val().trim();
+            if (plannedPieces == "")
+            {
+                plannedPieces = 0;
+            }
+            var data = { CountryId: countryId, Month: month, Year: year, BrandId: id, PlannedPieces: plannedPieces }
+            $.ajax({
+                method: "GET",
+                cache: false,
+                url: "/MonthlyBrandPlan/CreateOrEdit",
+                data: data,
+                success: function (response)
+                {
+                    location.reload();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            })
+
+        });
+        $(".cancel").click(function () {
+            var id = $(this).attr("id").split("Cancel_")[1];
+            HideInputs(id);
+        });
+        $("#Month").change(function () {
+            ReloadPage();
+        });
+        $("#Year").change(function () {
+            ReloadPage();
+        });
+        $("#CountryId").change(function () {
+            ReloadPage();
+        });
+        $(".input-number").numeric()
+    });
+</script>

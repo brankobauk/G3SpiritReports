@@ -19,17 +19,13 @@ namespace G3SpiritsReports.UI.Controllers
             {
                 countryId = 1;
             }
-            var month = Convert.ToInt32(Request.QueryString["month"]);
-            if (month == 0)
+            var date = Convert.ToDateTime(Request.QueryString["date"]);
+            if (date == DateTime.MinValue)
             {
-                month = DateTime.Now.Month;
+                date = DateTime.Today;
             }
-            var year = Convert.ToInt32(Request.QueryString["year"]);
-            if (year == 0)
-            {
-                year = DateTime.Now.Year;
-            }
-            var monthlyBrandReportHandler = _monthlyBrandReportManager.GetMonthlyBrandReport(countryId, month, year);
+            
+            var monthlyBrandReportHandler = _monthlyBrandReportManager.GetMonthlyBrandReport(countryId, date);
             return View(monthlyBrandReportHandler);
         }
 
@@ -39,11 +35,11 @@ namespace G3SpiritsReports.UI.Controllers
         // POST: /MonthlyBrandReport/Create
 
         [HttpGet]
-        public string CreateOrEdit(int countryId, int month, int year, int brandId, int plannedPieces, int soldPieces)
+        public string CreateOrEdit(int countryId, DateTime date, int brandId , int soldPieces)
         {
             try
             {
-                _monthlyBrandReportManager.CreateOrEdit(countryId, month, year, brandId, plannedPieces, soldPieces);
+                _monthlyBrandReportManager.CreateOrEdit(countryId, date, brandId, soldPieces);
                 return "OK";
             }
             catch(Exception ex)

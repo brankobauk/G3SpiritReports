@@ -18,13 +18,13 @@ namespace G3SpiritsReports.BusinessLogic.MonthlyBrandReports
         private readonly BrandManager _brandManager = new BrandManager();
         private readonly CountryManager _countryManager = new CountryManager();
         private readonly DropDownHelper _dropDownHelper = new DropDownHelper();
-        public MonthlyBrandReportViewModel GetMonthlyBrandReport(int countryId, int month, int year)
+        public MonthlyBrandReportViewModel GetMonthlyBrandReport(int countryId, DateTime date)
         {
             var brands = _brandManager.GetAllBrands();
             var monthlyBrandReports = new List<MonthlyBrandReport>();
             foreach (var brand in brands)
             {
-                var monthlyBrandReport = _monthlyBrandReportHandler.GetMonthlyBrandReport(brand.BrandId, countryId, month, year);
+                var monthlyBrandReport = _monthlyBrandReportHandler.GetMonthlyBrandReport(brand.BrandId, countryId, date);
                 if (monthlyBrandReport == null) monthlyBrandReport = new MonthlyBrandReport();
                 monthlyBrandReport.Brand = brand;
                 monthlyBrandReports.Add(monthlyBrandReport);
@@ -32,24 +32,19 @@ namespace G3SpiritsReports.BusinessLogic.MonthlyBrandReports
             var monthlyBrandReportViewModel = new MonthlyBrandReportViewModel()
             {
                 MonthlyBrandReports = monthlyBrandReports,
-                Month = month,
-                Year = year,
+                Date = date,
                 CountryId = countryId,
-                Months = _dropDownHelper.GetMonthsListForDropDown(),
-                Years = _dropDownHelper.GetYearsListForDropDown(),
                 Countries = _dropDownHelper.GetCountriesListForDropDown(_countryManager.GetAllCountries())
             };
             return monthlyBrandReportViewModel;
         }
 
-        public void CreateOrEdit(int countryId, int month, int year, int brandId, int plannedPieces, int soldPieces)
+        public void CreateOrEdit(int countryId, DateTime date, int brandId, int soldPieces)
         {
             var monthlyBrandReport = new MonthlyBrandReport();
             monthlyBrandReport.BrandId = brandId;
             monthlyBrandReport.CountryId = countryId;
-            monthlyBrandReport.Month = month;
-            monthlyBrandReport.Year = year;
-            monthlyBrandReport.PlannedPieces = plannedPieces;
+            monthlyBrandReport.Date = date;
             monthlyBrandReport.SoldPieces = soldPieces;
             _monthlyBrandReportHandler.CreateOrEdit(monthlyBrandReport);
         }

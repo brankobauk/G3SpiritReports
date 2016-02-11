@@ -17,26 +17,25 @@ namespace G3SpiritsReports.DataLayer.Repositories
             _db.SaveChanges();
         }
 
-        public List<MonthlyBrandReport> GetMonthlyBrandReports(int month, int year)
+        public List<MonthlyBrandReport> GetMonthlyBrandReports(DateTime date)
         {
-           return  _db.MonthlyBrandReports.Where(p=>p.Month == month && p.Year == year).ToList();
+           return  _db.MonthlyBrandReports.Where(p=>p.Date == date).ToList();
         }
 
-        public MonthlyBrandReport GetMonthlyBrandReport(int brandId, int countryId, int month, int year)
+        public MonthlyBrandReport GetMonthlyBrandReport(int brandId, int countryId, DateTime date)
         {
-            return _db.MonthlyBrandReports.FirstOrDefault(p => p.BrandId == brandId && p.CountryId == countryId && p.Month == month && p.Year == year);
+            return _db.MonthlyBrandReports.FirstOrDefault(p => p.BrandId == brandId && p.CountryId == countryId && p.Date.Equals(date.Date));
         }
 
         public void CreateOrEdit(MonthlyBrandReport monthlyBrandReport)
         {
-            var monthlyBrandReportToEdit = GetMonthlyBrandReport(monthlyBrandReport.BrandId, monthlyBrandReport.CountryId, monthlyBrandReport.Month, monthlyBrandReport.Year);
+            var monthlyBrandReportToEdit = GetMonthlyBrandReport(monthlyBrandReport.BrandId, monthlyBrandReport.CountryId, monthlyBrandReport.Date);
             if (monthlyBrandReportToEdit == null)
             {
                 CreateMonthlyBrandReportItem(monthlyBrandReport);
             }
             else
             {
-                monthlyBrandReportToEdit.PlannedPieces = monthlyBrandReport.PlannedPieces;
                 monthlyBrandReportToEdit.SoldPieces = monthlyBrandReport.SoldPieces;
                 _db.SaveChanges();
             }
