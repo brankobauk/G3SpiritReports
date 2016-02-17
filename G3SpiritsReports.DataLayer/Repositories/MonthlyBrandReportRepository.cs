@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace G3SpiritsReports.DataLayer.Repositories
 {
@@ -39,6 +40,11 @@ namespace G3SpiritsReports.DataLayer.Repositories
                 monthlyBrandReportToEdit.SoldPieces = monthlyBrandReport.SoldPieces;
                 _db.SaveChanges();
             }
+        }
+
+        public List<MonthlyBrandReport> GetMonthlyBrandReportItems(DateTime date, int countryId)
+        {
+            return _db.MonthlyBrandReports.Where(p => p.CountryId == countryId && p.Date == date && p.BrandId == p.Brand.BrandId).Include(p=>p.Brand).ToList();
         }
     }
 }

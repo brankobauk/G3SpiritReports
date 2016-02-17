@@ -20,5 +20,15 @@ namespace G3SpiritsReports.BusinessLogic.MonthlyBrandPlans
         {
             return _monthlyBrandPlanRepository.GetMonthlyBrandPlan(brandId, countryId, month, year);
         }
+
+        public List<MonthlyBrandPlan> GetMonthlyBrandPlanItems(DateTime date, int countryId)
+        {
+            return _monthlyBrandPlanRepository.GetMonthlyBrandPlanItems(countryId, date.Month, date.Year);
+        }
+
+        public MonthlyBrandReport GetLatestMonthlyBrandReport()
+        {
+            return _monthlyBrandPlanRepository.GetLatestMonthlyBrandReport();
+        }
     }
 }

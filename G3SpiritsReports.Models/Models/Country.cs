@@ -14,7 +14,7 @@ namespace G3SpiritsReports.Models.Models
         public int CountryId { get; set; }
         public string Name { get; set; }
 
-        public virtual ICollection<MonthlyBrandReport> MonthlyBrandReports { get; set; }
-        public virtual ICollection<YearlyBrandReport> YearlyBrandReports { get; set; }
+        private ICollection<MonthlyBrandReport> MonthlyBrandReports { get; set; }
+        private ICollection<YearlyBrandReport> YearlyBrandReports { get; set; }
     }
 }

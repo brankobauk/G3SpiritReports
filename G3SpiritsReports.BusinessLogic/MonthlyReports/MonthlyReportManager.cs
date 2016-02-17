@@ -45,5 +45,23 @@ namespace G3SpiritsReports.BusinessLogic.MonthlyReports
             monthlyReport.SoldValue = soldValue;
             _monthlyReportHandler.CreateOrEdit(monthlyReport);
         }
+
+        public MonthlyReportTable GetMonthlyReportTable(DateTime date, int countryId)
+        {
+            var monthlyReport = _monthlyReportHandler.GetMonthlyReport(countryId, date.Month, date.Year);
+            if(monthlyReport == null) return null;
+            var daysInMonth = System.DateTime.DaysInMonth(date.Year, date.Month);
+            var monthlyPlanToDate = monthlyReport.PlannedValue / daysInMonth * date.Day;
+            var plannedValue = monthlyReport.PlannedValue;
+            if (plannedValue == null) plannedValue = 0;
+            var soldValue = monthlyReport.SoldValue;
+            if (soldValue == null) soldValue = 0;
+            return new MonthlyReportTable()
+            {
+                MonthlyPlanToDate = monthlyPlanToDate.ToString(),
+                MonthlyPlan = plannedValue.ToString(),
+                SoldValue = soldValue.ToString()
+            };
+        }
     }
 }

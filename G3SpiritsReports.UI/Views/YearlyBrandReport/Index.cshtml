@@ -12,13 +12,13 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.BrandId)
+            @Html.DisplayNameFor(model => model.YearlyBrandReports.FirstOrDefault().Month)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Year)
+            @Html.DisplayNameFor(model => model.YearlyBrandReports.FirstOrDefault().PlannedPieces)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CountryId)
+            @Html.DisplayNameFor(model => model.YearlyBrandReports.FirstOrDefault().SoldPieces)
         </th>
         <th></th>
     </tr>

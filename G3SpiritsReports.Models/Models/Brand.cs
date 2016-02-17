@@ -18,7 +18,7 @@ namespace G3SpiritsReports.Models.Models
         public int BottleHeight { get; set; }
         public int SortOrder { get; set; }
 
-        public virtual ICollection<MonthlyBrandReport> MonthlyBrandReports { get; set; }
-        public virtual ICollection<YearlyBrandReport> YearlyBrandReports { get; set; }
+        private ICollection<MonthlyBrandReport> MonthlyBrandReports { get; set; }
+        private ICollection<YearlyBrandReport> YearlyBrandReports { get; set; }
     }
 }

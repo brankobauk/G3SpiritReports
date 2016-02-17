@@ -40,5 +40,15 @@ namespace G3SpiritsReports.DataLayer.Repositories
                 _db.SaveChanges();
             }
         }
+
+        public List<MonthlyBrandPlan> GetMonthlyBrandPlanItems(int countryId, int month, int year)
+        {
+            return _db.MonthlyBrandPlans.Where(p => p.CountryId == countryId && p.Month == month && p.Year == year).ToList();
+        }
+
+        public MonthlyBrandReport GetLatestMonthlyBrandReport()
+        {
+            return _db.MonthlyBrandReports.OrderByDescending(p => p.Date).FirstOrDefault();
+        }
     }
 }
