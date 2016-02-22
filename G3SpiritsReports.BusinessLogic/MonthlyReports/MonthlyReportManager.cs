@@ -58,9 +58,9 @@ namespace G3SpiritsReports.BusinessLogic.MonthlyReports
             if (soldValue == null) soldValue = 0;
             return new MonthlyReportTable()
             {
-                MonthlyPlanToDate = monthlyPlanToDate.ToString(),
-                MonthlyPlan = plannedValue.ToString(),
-                SoldValue = soldValue.ToString()
+                MonthlyPlanToDate = Math.Round(monthlyPlanToDate, 2).ToString(),
+                MonthlyPlan = Math.Round(plannedValue, 2).ToString(),
+                SoldValue = Math.Round(soldValue, 2).ToString()
             };
         }
     }

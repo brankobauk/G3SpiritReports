@@ -56,6 +56,17 @@ namespace G3SpiritsReports.BusinessLogic.MonthlyBrandReports
         {
             var daysInMonth = System.DateTime.DaysInMonth(date.Year, date.Month);
             var monthlyBrandReportTable = new List<MonthlyBrandReportTable>();
+            var monthlyBrandReportTableItem = new MonthlyBrandReportTable()
+            {
+                Name = "",
+                Image = null,
+                MonthlyPlan = "Monthly Plan",
+                MonthlyPlanToDate = "Plan Till Date",
+                SoldPieces = "Sold Pieces",
+                SoldPercentage = "Sold Precentage (%)",
+                OnPlan = false
+            };
+            monthlyBrandReportTable.Add(monthlyBrandReportTableItem);
             var monthlyBrandReportItems = _monthlyBrandReportHandler.GetMonthlyBrandReportItems(date, countryId);
             var monthlyBrandPlanItems = _monthlyBrandPlanHandler.GetMonthlyBrandPlanItems(date, countryId);
             var brands = _brandHandler.GetAllBrands();
@@ -74,7 +85,7 @@ namespace G3SpiritsReports.BusinessLogic.MonthlyBrandReports
                     }
                     var onPlan = (monthlyPlanToDate > monthlyReport.SoldPieces) ? false : true;
                     var soldPercentage = Math.Round(Convert.ToDecimal(monthlyReport.SoldPieces) / Convert.ToDecimal(monthlyPlanToDate) * 100, 2);
-                    var monthlyBrandReportTableItem = new MonthlyBrandReportTable() 
+                    monthlyBrandReportTableItem = new MonthlyBrandReportTable() 
                     { 
                         Name = item.Name,
                         Image = item.Image,

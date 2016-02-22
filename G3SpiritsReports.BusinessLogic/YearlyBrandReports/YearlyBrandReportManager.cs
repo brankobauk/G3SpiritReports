@@ -57,7 +57,7 @@ namespace G3SpiritsReports.BusinessLogic.YearlyBrandReports
                 yearlyBrandReport.Month = i;
                 yearlyBrandReports.Add(yearlyBrandReport);
             }
-            return yearlyBrandReports;
+            return yearlyBrandReports.OrderByDescending(p=>p.Month).ToList();
         }
         public List<YearlyBrandReportTable> GetYearlyBrandReportTables(DateTime date, int countryId)
         {
