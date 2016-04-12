@@ -61,11 +61,11 @@
             $(this).height(h);
         });
 
-        if (onPlan == false) {
-            container.find(".margin").height(0);
-        } else {
-            container.find(".margin").height(210 * (1 - (yearlyPlanValue / monthlySoldValue)));
-        }
+        //if (onPlan == false) {
+        //    container.find(".margin").height(0);
+        //} else {
+        //    container.find(".margin").height(210 * (1 - (yearlyPlanValue / monthlySoldValue)));
+        //}
 
         var chartLineContainer = container.find(".chart-line.arrow");
         var chartLineContainerYPos = chartLineContainer.position().top;

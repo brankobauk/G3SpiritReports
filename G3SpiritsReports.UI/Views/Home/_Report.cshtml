@@ -23,10 +23,10 @@
                 </table>
             </div>
         </div>
-        <div id="main">
+        <div id="main" style="width:100%">
             <table style="width:100%">
                 <tr>
-                    <td width="75%">
+                    <td width="75%" style="vertical-align:top;">
                         
                         <div id="main-table">
                             <table id="top-table">
@@ -173,67 +173,74 @@
                             <tr>
                                 <td>@if (Model.YearlyBrandReportTables != null)
                                 {
+                                        
                                     <div id="yearly-reports">
-                                        @foreach (var item in Model.YearlyBrandReportTables)
-                                        {
-                                            <div class="item">
-                                                <div class="name">@item.Name</div>
-                                                <div class="chart">
-                                                    <div class="margin">&nbsp;</div>
-                                                    @{
-                                            var j = 0;
-                                            var showAchievedArrow = false;
+                                        <table style="width:100%">
+                                            @foreach (var item in Model.YearlyBrandReportTables)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <div class="item">
+                                                            <div class="name">@item.Name</div>
+                                                            <div class="chart">
+                                                                <div id="margin_@item.Name">&nbsp;</div>
+                                                                @{
+                                                var j = 0;
+                                                var showAchievedArrow = false;
 
-                                            <table>
-                                                @foreach (var report in item.YearlyBrandReport)
-                                                {
-                                                    var soldPieces = "";
-                                                    var achievedLine = "";
-                                                    var plannedLine = "";
-                                                    var chartLineArrow = "";
-                                                    var achievedLineArrow = "";
-                                                    var plannedLineArrow = "";
-                                                    if (j == 0)
+                                                <table>
+                                                    @foreach (var report in item.YearlyBrandReport)
                                                     {
-                                                        chartLineArrow = "arrow";
-                                                    }
-                                                    if (report.SoldPieces > 0)
-                                                    {
-                                                        soldPieces = report.SoldPieces.ToString(CultureInfo.InvariantCulture);
-                                                        achievedLine = "achieved-line";
-                                                        plannedLine = "chart-line-planned";
+                                                        var soldPieces = "";
+                                                        var achievedLine = "";
+                                                        var plannedLine = "";
+                                                        var chartLineArrow = "";
+                                                        var achievedLineArrow = "";
+                                                        var plannedLineArrow = "";
+                                                        if (j == 0)
+                                                        {
+                                                            chartLineArrow = "arrow";
+                                                        }
+                                                        if (report.SoldPieces > 0)
+                                                        {
+                                                            soldPieces = report.SoldPieces.ToString(CultureInfo.InvariantCulture);
+                                                            achievedLine = "achieved-line";
+                                                            plannedLine = "chart-line-planned";
 
+                                                        }
+                                                        if (report.SoldPieces > 0 && !showAchievedArrow)
+                                                        {
+                                                            showAchievedArrow = true;
+                                                            achievedLineArrow = "arrow";
+                                                            plannedLineArrow = "arrow";
+                                                        }
+                                                        <tr class="line">
+                                                            <td class="month">@textInfo.ToTitleCase(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(report.Month))</td>
+                                                            <td class="planned-pieces">@report.PlannedPieces</td>
+                                                            <td class="chart-line @chartLineArrow @plannedLine @plannedLineArrow">&nbsp;</td>
+                                                            <td class="@achievedLine @achievedLineArrow">&nbsp;</td>
+                                                            <td class="sold-pieces">@soldPieces</td>
+                                                        </tr>
+                                                        j++;
                                                     }
-                                                    if (report.SoldPieces > 0 && !showAchievedArrow)
-                                                    {
-                                                        showAchievedArrow = true;
-                                                        achievedLineArrow = "arrow";
-                                                        plannedLineArrow = "arrow";
-                                                    }
-                                                    <tr class="line">
-                                                        <td class="month">@textInfo.ToTitleCase(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(report.Month))</td>
-                                                        <td class="planned-pieces">@report.PlannedPieces</td>
-                                                        <td class="chart-line @chartLineArrow @plannedLine @plannedLineArrow">&nbsp;</td>
-                                                        <td class="sold-pieces">@soldPieces</td>
-                                                        <td class="@achievedLine @achievedLineArrow">&nbsp;</td>
-                                                    </tr>
-                                                    j++;
-                                                }
-                                            </table>
-                                                        <div class="yearly-planned-ammount">&nbsp;</div>
-                                                        <div class="yearly-planned-ammount-value">@item.YearlyPiecesSum</div>
-                                                        <div class="monthly-planned-ammount">&nbsp;</div>
-                                                        <div class="monthly-planned-ammount-value">@item.PlannedPiecesSum</div>
-                                                        <div class="monthly-achieved-ammount">&nbsp;</div>
-                                                        <div class="monthly-achieved-ammount-value">@item.AchievedPiecesSum</div>
+                                                </table>
+                                                                    <div class="yearly-planned-ammount">&nbsp;</div>
+                                                                    <div class="yearly-planned-ammount-value">@item.YearlyPiecesSum</div>
+                                                                    <div class="monthly-planned-ammount">&nbsp;</div>
+                                                                    <div class="monthly-planned-ammount-value">@item.PlannedPiecesSum</div>
+                                                                    <div class="monthly-achieved-ammount">&nbsp;</div>
+                                                                    <div class="monthly-achieved-ammount-value">@item.AchievedPiecesSum</div>
 
 
-                                                    }
-                                                </div>
-                                                <div class="clear" style="clear: both;"></div>
-                                            </div>
-                                            <div class="clear" style="clear: both;"></div>
-                                        }
+                                                                }
+                                                            </div>
+                                                            <div class="clear" style="clear: both;"></div>
+                                                        </div>
+                                                        <div class="clear" style="clear: both;"></div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </table>
                                     </div>
 
                                 }</td>

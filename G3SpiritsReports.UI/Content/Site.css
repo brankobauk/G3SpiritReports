@@ -1040,8 +1040,6 @@ div.hidden {
 }
 #yearly-reports .item {
     width: 100%;
-    height: 230px;
-    float: left;
     position: relative;
 }
 #yearly-reports .name {
@@ -1051,40 +1049,37 @@ div.hidden {
 }
 #yearly-reports .chart {
     width: 100%;
-    float: left;
 }
 #yearly-reports .chart .margin{
     width: 192px;
-    float: left;
 }
 #yearly-reports .line {
     width: 100%;
-    float: left;
     padding-left: 10px;
 }
 #yearly-reports .line .month{
-    width: 90px;
-    float: left;
+    width: 20%;
     font-size: 0.7em;
     text-align: right
 }
 #yearly-reports .line .planned-pieces{
-    width: 30px;
-    float: left;
+    width: 16%;
     font-size: 0.5em;
+    text-align:left;
 }
 #yearly-reports .line .chart-line{
-    width: 25px;
-    float: left;
+    width: 4%;
 }
 #yearly-reports .line .achieved-line{
-    width: 25px;
-    float: left;
+    width: 4%;
 }
 #yearly-reports .line .sold-pieces{
-    width: 30px;
-    float: left;
+    width: 56%;
     font-size: 0.5em;
+    text-align:left;
+}
+#yearly-reports .line td{
+    padding:2px 14px !important
 }
 #cumulative-table {
     width: 100%;
@@ -1095,21 +1090,21 @@ div.hidden {
     border: 1px solid #000000;
 }
 
-.yearly-planned-ammount{width: 165px;text-align: left;position: absolute;background: url(/Content/themes/Images/arrow-orange.png);
+.yearly-planned-ammount{width: 47%;text-align: left;position: absolute;background: url(/Content/themes/Images/arrow-orange.png);
     background-position: top right;
     background-repeat: no-repeat;
     height: 100%;}
-.yearly-planned-ammount-value{width: 165px;text-align: left;position: absolute;font-size: 0.8em;font-weight: bold;color:#ffbe92;padding: 3px;}
-.monthly-planned-ammount{width: 165px;text-align: left;position: absolute;background: url(/Content/themes/Images/arrow-orangine.png);
+.yearly-planned-ammount-value{width: 47%;text-align: left;position: absolute;font-size: 0.8em;font-weight: bold;color:#ffbe92;padding: 3px;}
+.monthly-planned-ammount{width: 47%;text-align: left;position: absolute;background: url(/Content/themes/Images/arrow-orangine.png);
     background-position: top right;
     background-repeat: no-repeat;
     height: 100%;}
-.monthly-planned-ammount-value{width: 165px;text-align: left;position: absolute;font-size: 0.8em;font-weight: bold;color:#ff6600;padding: 3px;}
-.monthly-achieved-ammount{width: 130px;
-                          position: absolute;left: 170px;background: url(/Content/themes/Images/arrow-violet.png);
+.monthly-planned-ammount-value{width: 47%;text-align: left;position: absolute;font-size: 0.8em;font-weight: bold;color:#ff6600;padding: 3px;}
+.monthly-achieved-ammount{width: 51%;
+                          position: absolute;left: 51%;background: url(/Content/themes/Images/arrow-violet.png);
     background-position: top left;
     background-repeat: no-repeat;
     height: 100%;}
-.monthly-achieved-ammount-value{width: 125px;position: absolute;left: 170px;font-size: 0.8em;font-weight: bold;color:#b000ff;text-align: right;padding: 3px;}
+.monthly-achieved-ammount-value{width: 49%;position: absolute;left: 49%;font-size: 0.8em;font-weight: bold;color:#b000ff;text-align: right;padding: 3px;}
 
 .move{ cursor: move;}
