@@ -78,7 +78,7 @@
         window.location = "/YearlyBrandReport?CountryId=" + countryId + "&Year=" + year + "&BrandId=" + brandId;
     }
     $(document).ready(function () {
-        $("a").click(function () {
+        $(".main-content a").click(function () {
             var id = $(this).attr("href").split("Month=")[1];
             ShowInputs(id);
             return false;

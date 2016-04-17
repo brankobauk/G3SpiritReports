@@ -17,7 +17,7 @@
                         <tr>
                             <th class="month">@textInfo.ToTitleCase(CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(date.Month))</th>
                             <th class="date">@Model.Date</th>
-                            <th class="menu-button">@Html.ActionLink("Menu", "Index", "ProductSellingReport", new { }, new { @class = "button" })</th>
+                            <th class="menu-button">@Html.ActionLink("Menu", "Index", "MonthlyBrandReport", new { }, new { @class = "button" })</th>
                         </tr>
                     </thead>
                 </table>

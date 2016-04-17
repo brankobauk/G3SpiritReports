@@ -84,7 +84,7 @@ namespace G3SpiritsReports.BusinessLogic.MonthlyBrandReports
                         monthlyPlanToDate = plannedPieces / daysInMonth * date.Day;
                     }
                     var onPlan = (monthlyPlanToDate > monthlyReport.SoldPieces) ? false : true;
-                    var soldPercentage = Math.Round(Convert.ToDecimal(monthlyReport.SoldPieces) / Convert.ToDecimal(monthlyPlanToDate) * 100, 2);
+                    var soldPercentage = Math.Round(Convert.ToDecimal(monthlyReport.SoldPieces) / Convert.ToDecimal(monthlyPlanToDate) * 100, 0);
                     monthlyBrandReportTableItem = new MonthlyBrandReportTable() 
                     { 
                         Name = item.Name,

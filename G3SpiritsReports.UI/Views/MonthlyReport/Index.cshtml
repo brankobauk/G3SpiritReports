@@ -70,7 +70,7 @@
         window.location = "/MonthlyReport?CountryId=" + countryId + "&Year=" + year + "&Month=" + month;
     }
     $(document).ready(function () {
-        $("a").click(function () {
+        $(".main-content a").click(function () {
             var id = $(this).attr("href").split("MonthlyReportId=")[1];
             ShowInputs(id);
             return false;

@@ -21,7 +21,7 @@ function FixDate(date)
     return dateparts[2] + '-' + dateparts[1] + '-' + dateparts[0];
 }
 $(document).ready(function () {
-    $("a").click(function () {
+    $(".main-content a").click(function () {
         var id = $(this).attr("href").split("BrandId=")[1];
         ShowInputs(id);
         return false;

@@ -15,7 +15,7 @@ function ReloadPage() {
     window.location = "/MonthlyBrandReport?CountryId=" + countryId + "&Year=" + year + "&Month=" + month;
 }
 $(document).ready(function () {
-    $("a").click(function () {
+    $(".main-content a").click(function () {
         var id = $(this).attr("href").split("BrandId=")[1];
         ShowInputs(id);
         return false;

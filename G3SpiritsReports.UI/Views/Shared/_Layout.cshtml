@@ -26,14 +26,13 @@
                         @if (Request.IsAuthenticated)
                         {
                             <li>@Html.ActionLink("Tables", "Index", "Home")</li>
-                            <li>@Html.ActionLink("DailyReports", "Index", "ProductSellingReport")</li>
-                            <li>@Html.ActionLink("MonthlyPlans", "Index", "ProductSellingPlan")</li>
-                            <li>@Html.ActionLink("MonthlyCumulativePlan", "Index", "ProductSellingMonthlyPlan")</li>
-                            <li>@Html.ActionLink("MonthlyCumulativeReport", "Index", "ProductSellingMonthlyReport")</li>
-                            <li>@Html.ActionLink("YearlyReport", "Index", "ProductSellingYearlyReport")</li>
-                            <li>@Html.ActionLink("Brands", "Index", "Product")</li>
+                            <li>@Html.ActionLink("DailyReports", "Index", "MonthlyBrandReport")</li>
+                            <li>@Html.ActionLink("MonthlyPlans", "Index", "MonthlyBRandPlan")</li>
+                            <li>@Html.ActionLink("MonthlyReports", "Index", "MonthlyReport")</li>
+                            <li>@Html.ActionLink("YearlyBrandReports", "Index", "YearlyBrandReport")</li>
+                            <li>@Html.ActionLink("Brands", "Index", "Brand")</li>
                             <li>@Html.ActionLink("Countries", "Index", "Country")</li>
-                            <li>@Html.ActionLink("Holidays", "Index", "Holiday")</li>
+                            <li>@Html.ActionLink("Users", "Index", "Account")</li>
                         }
                     </ul>
                 </nav>
