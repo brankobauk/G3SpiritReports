@@ -15,7 +15,6 @@ namespace G3SpiritsReports.Models.Models
         public int BrandId { get; set; }
         public string Name { get; set; }
         public byte[] Image { get; set; }
-        public int BottleHeight { get; set; }
         public int SortOrder { get; set; }
 
         private ICollection<MonthlyBrandReport> MonthlyBrandReports { get; set; }

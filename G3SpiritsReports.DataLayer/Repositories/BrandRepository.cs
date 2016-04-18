@@ -18,6 +18,8 @@ namespace G3SpiritsReports.DataLayer.Repositories
 
         public void CreateBrand(Brand brand)
         {
+            var noOfBrand = GetAllBrands().Count + 1;
+            brand.SortOrder = noOfBrand;
             _db.Brands.Add(brand);
             _db.SaveChanges();
         }
@@ -33,6 +35,7 @@ namespace G3SpiritsReports.DataLayer.Repositories
             var brandToEdit = GetBrand(brand.BrandId);
             if (brandToEdit == null) return;
             brandToEdit.Name = brand.Name;
+            brandToEdit.BottleHeight = brand.BottleHeight;
             if (image != null)
             {
                 brandToEdit.Image = image;
