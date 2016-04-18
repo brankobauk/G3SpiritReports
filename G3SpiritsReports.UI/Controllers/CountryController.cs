@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace G3SpiritsReports.UI.Controllers
 {
+    [Authorize]
     public class CountryController : Controller
     {
         private readonly CountryManager _countryManager = new CountryManager();

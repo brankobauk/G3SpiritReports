@@ -30,5 +30,10 @@ namespace G3SpiritsReports.BusinessLogic.Brands
         {
             _brandHandler.EditBrand(brand, image);
         }
+
+        public void SaveSort(int brandId, int sortOrder)
+        {
+            _brandHandler.SaveSort(brandId, sortOrder);
+        }
     }
 }

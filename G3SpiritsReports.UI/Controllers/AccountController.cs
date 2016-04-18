@@ -81,7 +81,6 @@ namespace G3SpiritsReports.UI.Controllers
         //
         // GET: /Account/Register
 
-        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -91,7 +90,6 @@ namespace G3SpiritsReports.UI.Controllers
         // POST: /Account/Register
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
@@ -101,8 +99,7 @@ namespace G3SpiritsReports.UI.Controllers
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Account");
                 }
                 catch (MembershipCreateUserException e)
                 {

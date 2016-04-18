@@ -12,23 +12,69 @@
 @if(Model != null)
 {
 <table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { brandId = item.BrandId })
-        </td>
-    </tr>
-}
-
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr id="@item.BrandId">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { brandId = item.BrandId })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
 }
+@Scripts.Render("~/bundles/jqueryui")
+<script type="text/javascript">
+    var error = 0;
+    var fixHelperModified = function (e, tr) {
+        var $originals = tr.children();
+        var $helper = tr.clone();
+        $helper.children().each(function (index) {
+            $(this).width($originals.eq(index).width())
+        });
+        return $helper;
+    },
+    updateIndex = function (e, ui) {
+        $("table tbody tr").each(function (i) {
+            var data = { BrandId: $(this).attr("id"), SortOrder: i }
+            $.ajax({
+                method: "GET",
+                cache: false,
+                url: "/Brand/SaveSort",
+                data: data,
+                success: function (response) {
+                    location.reload();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError)
+                    error = 1;
+                }
+            })
+        }).promise().done(function () {  
+            if (error == 0)
+            {
+                alert("Saved Successfully!");
+            }
+            error = 0;
+        });
+    };
+
+    $("table tbody").sortable({
+        helper: fixHelperModified,
+        cursor: "move",
+        stop: updateIndex
+    }).disableSelection();
+</script>

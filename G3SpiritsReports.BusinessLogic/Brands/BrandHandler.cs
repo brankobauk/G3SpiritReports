@@ -13,7 +13,7 @@ namespace G3SpiritsReports.BusinessLogic.Brands
         private readonly BrandRepository _brandRepository = new BrandRepository();
         public List<Brand> GetAllBrands()
         {
-            return _brandRepository.GetAllBrands();
+            return _brandRepository.GetAllBrands().OrderBy(p=>p.SortOrder).ToList();
         }
 
         public void CreateBrand(Brand brand)
@@ -29,6 +29,11 @@ namespace G3SpiritsReports.BusinessLogic.Brands
         public void EditBrand(Brand brand, byte[] image)
         {
             _brandRepository.EditBrand(brand, image);
+        }
+
+        public void SaveSort(int brandId, int sortOrder)
+        {
+            _brandRepository.SortOrder(brandId, sortOrder);
         }
     }
 }

@@ -35,11 +35,18 @@ namespace G3SpiritsReports.DataLayer.Repositories
             var brandToEdit = GetBrand(brand.BrandId);
             if (brandToEdit == null) return;
             brandToEdit.Name = brand.Name;
-            brandToEdit.BottleHeight = brand.BottleHeight;
             if (image != null)
             {
                 brandToEdit.Image = image;
             }
+            _db.SaveChanges();
+        }
+
+        public void SortOrder(int brandId, int sortOrder)
+        {
+            var brandToEdit = GetBrand(brandId);
+            if (brandToEdit == null) return;
+            brandToEdit.SortOrder = sortOrder;
             _db.SaveChanges();
         }
     }

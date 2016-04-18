@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace G3SpiritsReports.UI.Controllers
 {
+    [Authorize]
     public class BrandController : Controller
     {
         private readonly BrandManager _brandManager = new BrandManager();
@@ -84,6 +85,20 @@ namespace G3SpiritsReports.UI.Controllers
             catch
             {
                 return View();
+            }
+        }
+
+        [HttpGet]
+        public string SaveSort(int brandId, int sortOrder)
+        {
+            try
+            {
+                _brandManager.SaveSort(brandId, sortOrder);
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
     }

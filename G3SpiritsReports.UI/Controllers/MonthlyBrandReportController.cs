@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace G3SpiritsReports.UI.Controllers
 {
+    [Authorize]
     public class MonthlyBrandReportController : Controller
     {
         //
